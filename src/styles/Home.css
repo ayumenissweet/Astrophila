@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+
+  background-color: #1b255f;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+.hero {
+  display: flex;
+  background-color: #1b255f;
+}
+
+.hero-left {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  background-color: #262f6d;
+
+  padding: 15px 20px;
+}
+
+.hero-title {
+  display: flex;
+  gap: 12px;
+
+  font-weight: 700;
+  font-size: 24px;
+  color: #ff42ab;
+}
+
+.hero-user {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.hero-input {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  font-size: 20px;
+}
+
+.hero-input input {
+  max-width: 400px;
+
+  padding: 15px 20px;
+
+  color: white;
+
+  border: 3px solid #445dff;
+  border-radius: 20px;
+
+  background-color: #10184a;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hero-input input:focus {
+  transform: scale(1.05);
+  outline: none;
+  box-shadow: 0 0 10px #445dff;
+}
+
+.hero-input input::placeholder {
+  font-size: 16px;
+}
+
+/* Button */
+.btn {
+  max-width: 50%;
+
+  border-radius: 16px;
+
+  background-color: #ff42ab;
+  color: #1b255f;
+
+  font-weight: 700;
+  font-size: 20px;
+
+  padding: 20px 0;
+
+  cursor: pointer;
+}
+
+button {
+  border: none;
+}
+
+.btn-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Hero Girl */
+.hero-character {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("../assets/stars-bg-hero.png");
+  background-repeat: repeat;
+
+  background-position: center;
+}
+
+/* Dividers */
+.divider {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  margin: 20px auto;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: #ff42ab;
+}
+
+.divider img {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 30px;
+}
