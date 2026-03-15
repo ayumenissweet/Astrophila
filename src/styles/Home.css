@@ -14,18 +14,37 @@ body {
 
 .hero {
   display: flex;
+  justify-content: space-between;
   background-color: #1b255f;
+
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .hero-left {
-  height: 100%;
+  flex: 0 0 40%; /* Makes the left side slightly slimmer than the right */
   display: flex;
   flex-direction: column;
-  gap: 16px;
-
+  justify-content: center; /* This centers all your content vertically! */
+  gap: 24px; /* Slightly more space between elements */
   background-color: #262f6d;
+  padding: 60px; /* Big padding makes it look professional */
+  height: 100%;
+}
 
-  padding: 15px 20px;
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* The stars go on the container */
+  background-image: url("../assets/stars-bg-hero.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-color: #1b255f;
 }
 
 .hero-title {
@@ -40,6 +59,8 @@ body {
 .hero-user {
   font-size: 50px;
   font-weight: 700;
+
+  margin-left: 6px;
 }
 
 .hero-input {
@@ -61,6 +82,7 @@ body {
   border-radius: 20px;
 
   background-color: #10184a;
+  box-shadow: 0 4px 6px #10184a;
 
   transition:
     transform 0.2s ease,
@@ -78,7 +100,10 @@ body {
 }
 
 /* Button */
+
 .btn {
+  align-self: center;
+
   max-width: 50%;
 
   border-radius: 16px;
@@ -89,9 +114,26 @@ body {
   font-weight: 700;
   font-size: 20px;
 
-  padding: 20px 0;
+  padding: 20px 50px;
 
   cursor: pointer;
+
+  background: linear-gradient(to right, #ff42ab 50%, white 50%);
+
+  background-size: 200% 100%;
+
+  background-position: right bottom;
+
+  transition: all 0.4s ease-out;
+
+  color: #1b255f;
+}
+
+.btn:hover {
+  background-position: left bottom;
+
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px #1b255f;
 }
 
 button {
@@ -107,24 +149,17 @@ button {
 
 /* Hero Girl */
 .hero-character {
-  flex: 1;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-image: url("../assets/stars-bg-hero.png");
-  background-repeat: repeat;
-
-  background-position: center;
+  width: 70%; /* Adjust this to make the girl bigger or smaller */
+  height: auto;
+  object-fit: contain;
 }
 
 /* Dividers */
 .divider {
   display: flex;
   align-items: center;
-  width: 70%;
-  margin: 20px auto;
+  width: 100%; /* Take up the full width of the left container */
+  margin: 20px 0; /* Vertical space only */
 }
 
 .divider-line {

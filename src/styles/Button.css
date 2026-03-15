@@ -1,0 +1,45 @@
+.btn {
+  align-self: center;
+
+  max-width: 50%;
+
+  border-radius: 16px;
+
+  background-color: #ff42ab;
+  color: #1b255f;
+
+  font-weight: 700;
+  font-size: 20px;
+
+  padding: 20px 50px;
+
+  cursor: pointer;
+
+  background: linear-gradient(to right, #ff42ab 50%, white 50%);
+
+  background-size: 200% 100%;
+
+  background-position: right bottom;
+
+  transition: all 0.4s ease-out;
+
+  color: #1b255f;
+}
+
+.btn:hover {
+  background-position: left bottom;
+
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px #1b255f;
+}
+
+button {
+  border: none;
+}
+
+.btn-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}

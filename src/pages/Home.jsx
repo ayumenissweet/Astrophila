@@ -7,6 +7,8 @@ import divider from "../assets/divider.svg";
 
 import mascotGirl from "../assets/sweetie.png";
 
+import Button from "../components/Button";
+
 function Home() {
   const [username, setUsername] = useState("");
 
@@ -36,17 +38,12 @@ function Home() {
             name="username"
             value={username}
             placeholder="Your Astronaut Name..."
-            maxLength="10"
+            maxLength="16"
             onChange={(e) => setUsername(e.target.value)}
           ></input>
         </label>
 
-        <button className="btn">
-          <div className="btn-text">
-            <p>Start Stargazing</p>
-            <img src={starIcon} alt="a star"></img>
-          </div>
-        </button>
+        <Button text="Start Stargazing" icon={starIcon}></Button>
       </div>
 
       <div className="hero-right">
