@@ -4,7 +4,6 @@ import "../styles/Home.css";
 import miniStarIcon from "../assets/miniStar.svg";
 import starIcon from "../assets/star.svg";
 import divider from "../assets/divider.svg";
-
 import mascotGirl from "../assets/sweetie.png";
 
 import Button from "../components/Button";

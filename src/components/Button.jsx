@@ -1,3 +1,5 @@
+import "../styles/Button.css";
+
 function Button({ text, icon }) {
   return (
     <button className="btn">

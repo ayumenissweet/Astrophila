@@ -24,14 +24,21 @@ body {
 }
 
 .hero-left {
-  flex: 0 0 40%; /* Makes the left side slightly slimmer than the right */
+  flex: 0 0 40%;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* This centers all your content vertically! */
-  gap: 24px; /* Slightly more space between elements */
+  justify-content: center;
+  gap: 24px;
   background-color: #262f6d;
-  padding: 60px; /* Big padding makes it look professional */
+  padding: 60px;
   height: 100%;
+
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+  position: relative;
+  z-index: 10;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero-right {
@@ -40,7 +47,6 @@ body {
   justify-content: center;
   align-items: center;
 
-  /* The stars go on the container */
   background-image: url("../assets/stars-bg-hero.png");
   background-repeat: repeat;
   background-position: center;
@@ -99,54 +105,6 @@ body {
   font-size: 16px;
 }
 
-/* Button */
-
-.btn {
-  align-self: center;
-
-  max-width: 50%;
-
-  border-radius: 16px;
-
-  background-color: #ff42ab;
-  color: #1b255f;
-
-  font-weight: 700;
-  font-size: 20px;
-
-  padding: 20px 50px;
-
-  cursor: pointer;
-
-  background: linear-gradient(to right, #ff42ab 50%, white 50%);
-
-  background-size: 200% 100%;
-
-  background-position: right bottom;
-
-  transition: all 0.4s ease-out;
-
-  color: #1b255f;
-}
-
-.btn:hover {
-  background-position: left bottom;
-
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px #1b255f;
-}
-
-button {
-  border: none;
-}
-
-.btn-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
 /* Hero Girl */
 .hero-character {
   width: 70%; /* Adjust this to make the girl bigger or smaller */
@@ -158,8 +116,8 @@ button {
 .divider {
   display: flex;
   align-items: center;
-  width: 100%; /* Take up the full width of the left container */
-  margin: 20px 0; /* Vertical space only */
+  width: 100%;
+  margin: 20px 0;
 }
 
 .divider-line {
