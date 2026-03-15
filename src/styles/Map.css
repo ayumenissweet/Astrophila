@@ -1,0 +1,13 @@
+.map {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+
+  background: url("../assets/hidden-bg.png");
+  background-repeat: repeat;
+}
+
+.planet {
+  width: 55px;
+  height: auto;
+}

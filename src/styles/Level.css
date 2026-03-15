@@ -1,0 +1,30 @@
+.level {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1b255f;
+
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.level-left {
+  flex: 0 0 30%;
+  gap: 24px;
+  background-color: #262f6d;
+  padding: 40px;
+  height: 100%;
+
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+  position: relative;
+  z-index: 10;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.options {
+  width: 20px;
+  height: auto;
+}
