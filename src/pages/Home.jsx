@@ -6,9 +6,7 @@ import starIcon from "../assets/star.svg";
 import divider from "../assets/divider.svg";
 import mascotGirl from "../assets/sweetie.png";
 
-import Button from "../components/Button";
-
-function Home() {
+function Home({ onStart }) {
   const [username, setUsername] = useState("");
 
   return (
@@ -16,7 +14,7 @@ function Home() {
       <div className="hero-left">
         <div className="hero-title">
           <h1>Astrophila</h1>
-          <img src={miniStarIcon}></img>
+          <img src={miniStarIcon} alt="star" />
         </div>
         <p>
           Your Cosmic Adventure Begins! Explore in a world full of stars... and
@@ -24,7 +22,7 @@ function Home() {
         </p>
         <div className="divider">
           <div className="divider-line"></div>
-          <img src={divider}></img>
+          <img src={divider} alt="divider" />
           <div className="divider-line"></div>
         </div>
         <h2>
@@ -39,10 +37,13 @@ function Home() {
             placeholder="Your Astronaut Name..."
             maxLength="16"
             onChange={(e) => setUsername(e.target.value)}
-          ></input>
+          />
         </label>
 
-        <Button text="Start Stargazing" icon={starIcon}></Button>
+        <button className="btn-pink" style={{ alignSelf: 'flex-start', display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 24px' }} onClick={onStart}>
+          <span>Start Stargazing</span>
+          <img src={starIcon} alt="star" style={{ width: '18px', filter: 'brightness(0) invert(1)' }} />
+        </button>
       </div>
 
       <div className="hero-right">

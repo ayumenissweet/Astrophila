@@ -1,6 +1,7 @@
 import "../styles/Map.css";
 import Planet from "./Planet";
-import { StaticProps } from "./StaticProps";
+import Star from "./Star";
+import { StaticProps, stars } from "./StaticProps";
 
 function Map() {
   function drawMap() {
@@ -11,7 +12,25 @@ function Map() {
     });
   }
 
-  return <div className="map">{drawMap()}</div>;
+  function drawStars() {
+    return stars.map((star) => {
+      return (
+        <Star
+          x={star.x}
+          y={star.y}
+          size={star.size}
+          duration={star.duration}
+        ></Star>
+      );
+    });
+  }
+
+  return (
+    <div className="map">
+      {drawMap()}
+      {drawStars()}
+    </div>
+  );
 }
 
 export default Map;
