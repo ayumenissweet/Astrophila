@@ -1,5 +1,6 @@
 // src/App.jsx
 import { useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import MainWarns from "./components/MainWarns";
 import LevelSelect from "./components/LevelSelect";
@@ -8,69 +9,80 @@ import Level from "./pages/Level";
 import "./App.css";
 
 function App() {
-  const [page, setPage] = useState("home");
-  const [niveau, setNiveau] = useState(null);
+  const navigate = useNavigate();
   const [unlockedLevels, setUnlockedLevels] = useState([1]);
 
-  const handleStartLevel = (num) => {
-    if (!unlockedLevels.includes(num)) return; // block locked levels
-
-    setNiveau(num);
-    setPage("game");
+  const handleLevelUnlock = (nextLevel) => {
+    setUnlockedLevels((prev) =>
+      prev.includes(nextLevel) ? prev : [...prev, nextLevel],
+    );
   };
 
   return (
     <div className="app">
-      {/* Background pattern */}
+      {/* Background & Particles (Keep these here so they persist across pages) */}
       <div className="stars-bg"></div>
-
-      {/* Ambient glow orbs */}
       <div className="glow-orb glow-orb--1"></div>
-      <div className="glow-orb glow-orb--2"></div>
-      <div className="glow-orb glow-orb--3"></div>
-
-      {/* Floating particles */}
       <div className="particle particle--1"></div>
-      <div className="particle particle--2"></div>
-      <div className="particle particle--3"></div>
-      <div className="particle particle--4"></div>
-      <div className="particle particle--5"></div>
-      <div className="particle particle--6"></div>
 
-      {/* Pages */}
-      {page === "home" && <Home onStart={() => setPage("warns")} />}
-      {page === "warns" && <MainWarns onProceed={() => setPage("levels")} />}
-      {page === "levels" && (
-        <LevelSelect
-          onHome={() => setPage("home")}
-          onTutorial={() => setPage("tutorial")}
-          selectedLevel={niveau}
-          onSelectLevel={handleStartLevel}
-          unlockedLevels={unlockedLevels}
+      <Routes>
+        <Route path="/" element={<Home onStart={() => navigate("/warns")} />} />
+
+        <Route
+          path="/warns"
+          element={<MainWarns onProceed={() => navigate("/levels")} />}
         />
-      )}
-      {page === "tutorial" && <Tutorial onBack={() => setPage("levels")} />}
-      {page === "game" && niveau && (
-        <Level
-          key={niveau}
-          level={niveau}
-          onBack={(action) => {
-            if (action === "next") {
-              const nextLevel = niveau + 1;
 
-              // Unlock next level if not already unlocked
-              setUnlockedLevels((prev) =>
-                prev.includes(nextLevel) ? prev : [...prev, nextLevel],
-              );
-
-              setNiveau(nextLevel);
-            } else {
-              setPage("levels");
-            }
-          }}
+        <Route
+          path="/levels"
+          element={
+            <LevelSelect
+              onHome={() => navigate("/")}
+              onTutorial={() => navigate("/tutorial")}
+              onSelectLevel={(num) => navigate(`/level/${num}`)}
+              unlockedLevels={unlockedLevels}
+            />
+          }
         />
-      )}
+
+        <Route
+          path="/tutorial"
+          element={<Tutorial onBack={() => navigate("/levels")} />}
+        />
+
+        <Route
+          path="/level/:id"
+          element={
+            <LevelWrapper
+              onUnlock={handleLevelUnlock}
+              onBack={() => navigate("/levels")}
+            />
+          }
+        />
+      </Routes>
     </div>
+  );
+}
+
+// Small wrapper to extract the ID from the URL and pass it to Level
+import { useParams } from "react-router-dom";
+function LevelWrapper({ onUnlock, onBack }) {
+  const { id } = useParams();
+  const levelNum = parseInt(id);
+
+  return (
+    <Level
+      key={levelNum}
+      level={levelNum}
+      onBack={(action) => {
+        if (action === "next") {
+          onUnlock(levelNum + 1);
+          onBack(); // Go back to level select or you could navigate directly to levelNum + 1
+        } else {
+          onBack();
+        }
+      }}
+    />
   );
 }
 
