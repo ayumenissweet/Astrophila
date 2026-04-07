@@ -87,10 +87,10 @@ function Level({ level = 1, onBack }) {
 
   const STAR_SIZE = 40; // width and height of the star
 
-  const maskString = isStarFound
-    ? `radial-gradient(circle 70px at ${mousePos.x}px ${mousePos.y}px, transparent 0%, rgba(0,0,0,0.4) 50%, black 100%), 
+const maskString = isStarFound
+  ? `radial-gradient(circle 70px at ${mousePos.x}px ${mousePos.y}px, transparent 0%, rgba(0,0,0,0.5) 50%, black 100%), 
      radial-gradient(circle 120px at ${starPos.x + STAR_SIZE / 2}px ${starPos.y + STAR_SIZE / 2}px, transparent 0%, black 100%)`
-    : `radial-gradient(circle 70px at ${mousePos.x}px ${mousePos.y}px, transparent 0%, rgba(0,0,0,0.4) 50%, black 100%)`;
+  : `radial-gradient(circle 70px at ${mousePos.x}px ${mousePos.y}px, transparent 0%, rgba(0,0,0,0.5) 50%, black 100%)`;
 
   useEffect(() => {
     setStarPos({
@@ -223,14 +223,14 @@ function Level({ level = 1, onBack }) {
             })}
           </div>
           <div
-            className="fog-bg"
-            style={{
-              maskImage: maskString,
-              WebkitMaskImage: maskString,
-              maskComposite: "destination-in", // This helps blend the two "holes"
-              WebkitMaskComposite: "destination-in",
-            }}
-          ></div>
+  className="fog-bg"
+  style={{
+    maskImage: maskString,
+    WebkitMaskImage: maskString,
+    maskComposite: "intersect", 
+    WebkitMaskComposite: "destination-in",
+  }}
+></div>
         </div>
 
         {isWin && (

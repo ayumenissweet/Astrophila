@@ -40,9 +40,23 @@ function Home({ onStart }) {
           />
         </label>
 
-        <button className="btn-pink" style={{ alignSelf: 'flex-start', display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 24px' }} onClick={onStart}>
+        <button
+          className="btn-pink"
+          style={{
+            alignSelf: "flex-start",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            padding: "12px 24px",
+          }}
+          onClick={onStart}
+        >
           <span>Start Stargazing</span>
-          <img src={starIcon} alt="star" style={{ width: '18px', filter: 'brightness(0) invert(1)' }} />
+          <img
+            src={starIcon}
+            alt="star"
+            style={{ width: "18px", filter: "brightness(0) invert(1)" }}
+          />
         </button>
       </div>
 

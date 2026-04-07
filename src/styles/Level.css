@@ -81,6 +81,11 @@
   justify-content: center;
 }
 
+.map-wrapper {
+  position: relative;
+  transform-origin: center center; /* 🔥 key change */
+}
+
 .fog-bg {
   position: absolute;
   top: 0;
@@ -90,11 +95,6 @@
   min-height: 720px;
   z-index: 10;
   pointer-events: none;
-}
-
-.map-wrapper {
-  position: relative;
-  transform-origin: center center; /* 🔥 key change */
 }
 
 .fog-bg {
